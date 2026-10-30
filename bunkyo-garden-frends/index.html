@@ -34,7 +34,7 @@ body{padding-top:26px}
 .note{font-size:12px;color:#7A5A00;background:var(--cream);border-left:3px solid var(--gold);padding:10px 14px;line-height:1.8}
 
 /* header */
-header.site{background:rgba(22,35,63,.96);color:#fff;position:sticky;top:26px;z-index:50}
+header.site{background:rgba(22,35,63,.96);color:#fff;position:sticky;top:0;z-index:50}
 header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
 .brand{font-family:var(--serif);font-size:17px;letter-spacing:.08em;color:#fff;text-decoration:none;line-height:1.2}
 .brand small{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.3em;color:var(--gold-soft);font-weight:500}
@@ -44,22 +44,32 @@ nav.gnav a:hover{color:var(--gold-soft);border-color:var(--gold-soft)}
 @media(max-width:820px){nav.gnav{display:none}}
 
 /* hero */
-.hero{position:relative;min-height:74vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
-.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.55) saturate(.9)}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,27,48,.25),rgba(15,27,48,.75))}
+.hero{position:relative;min-height:74vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;
+  background:
+    radial-gradient(100% 75% at 80% -6%, rgba(255,236,190,.45), transparent 55%),
+    linear-gradient(180deg,#5C7A3E 0%,#6E8B4A 45%,#8FA75E 100%)}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.62) saturate(.95)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,32,18,.42) 0%,rgba(20,32,18,.34) 38%,rgba(18,30,16,.78) 100%)}
 .hero .wrap{position:relative;z-index:2;padding-top:90px;padding-bottom:64px}
-.hero .eyebrow{color:var(--gold-soft)}
-.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5.4vw,52px);line-height:1.45;margin:14px 0 18px;text-shadow:0 2px 24px rgba(0,0,0,.35)}
-.hero h1 span{color:var(--gold-soft)}
-.hero p.sub{max-width:560px;font-size:14px;color:#EDE7DA}
+.hero .eyebrow{color:#F2E3B2;text-shadow:0 1px 6px rgba(15,24,12,.8)}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5.4vw,52px);line-height:1.45;margin:14px 0 18px;color:#fff;text-shadow:0 2px 10px rgba(15,24,12,.85),0 4px 34px rgba(15,24,12,.7)}
+.hero h1 span{color:#F2E3B2}
+.hero p.sub{max-width:600px;font-size:15px;color:#FFFFFF;text-shadow:0 1px 8px rgba(15,24,12,.8);font-weight:500}
 .hero .meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
-.hero .meta span{font-size:11px;letter-spacing:.14em;border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:6px 16px;background:rgba(22,35,63,.35)}
+.hero .meta span{font-size:11px;letter-spacing:.14em;border:1px solid rgba(255,255,255,.5);border-radius:999px;padding:6px 16px;background:rgba(24,38,20,.55);color:#fff;font-weight:600;backdrop-filter:blur(2px)}
 .src-tag{position:absolute;right:10px;bottom:8px;z-index:3;font-size:9px;color:rgba(255,255,255,.7)}
 
 /* generic section */
-section.sec{padding:88px 0}
+section.sec{padding:110px 0}
+section.sec .wrap{padding-bottom:26px}
+.fee-notes{list-style:none;margin:18px 0 64px;padding:0;background:#fff;border:1px solid var(--soil);border-radius:10px;padding:6px 22px}
+.fee-notes li{font-size:12.5px;color:var(--ink-soft);line-height:1.9;padding:9px 0;border-bottom:1px dashed var(--soil)}
+.fee-notes li:last-child{border-bottom:0}
+.fee-notes li b{color:var(--navy);font-weight:700;margin-right:4px}
+@media(max-width:820px){.fee-notes{margin-bottom:56px}}
+
 section.sec.alt{background:#fff}
-.sec-head{margin-bottom:44px}
+.sec-head{margin-bottom:48px}
 .num{font-size:12px;color:var(--gold);letter-spacing:.3em;font-weight:700}
 
 /* concept */
@@ -67,6 +77,7 @@ section.sec.alt{background:#fff}
 @media(max-width:820px){.concept{grid-template-columns:1fr}}
 .concept blockquote{font-family:var(--serif);font-size:clamp(19px,2.6vw,25px);color:var(--navy);line-height:2;border-left:3px solid var(--gold);padding-left:24px;margin-bottom:22px}
 .concept p{color:var(--ink-soft);margin-bottom:14px}
+@media(max-width:820px){.fee-table{margin-bottom:8px}}
 .goals{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:60px}
 @media(max-width:960px){.goals{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.goals{grid-template-columns:1fr}}
@@ -106,6 +117,20 @@ section.sec.alt{background:#fff}
 .plan .cta-line{font-size:12px;color:var(--ink-soft);margin-top:10px}
 .compare{margin-top:18px;background:var(--cream);border-radius:8px;padding:18px 22px;font-size:13px}
 .compare b{color:var(--navy)}
+@media(max-width:820px){
+.fee-table{display:block;border:0}
+.fee-table thead{display:none}
+.fee-table tbody{display:block}
+.fee-table tr{display:block;background:#fff;border:1px solid var(--soil);border-radius:10px;margin:0 0 14px;padding:6px 0 10px;overflow:hidden}
+.fee-table td{display:block;border-top:0;padding:6px 18px;text-align:left;white-space:normal}
+.fee-table td::before{content:attr(data-l);display:inline-block;font-size:10px;letter-spacing:.1em;color:#8A6A33;font-weight:700;margin-right:10px;min-width:0}
+.fee-table td.pn{font-size:15.5px;font-weight:700;color:var(--navy);padding-bottom:4px}
+.fee-table td.pn small{display:inline;margin-left:8px}
+.fee-table td small{display:inline;margin-left:6px}
+.fee-table td.pr{font-size:23px;margin-top:2px;border-top:1px dashed var(--soil);padding-top:12px}
+.fee-table td.pr::before{font-size:11px}
+.fee-table td.pr small{display:block;margin:4px 0 0;font-size:11px}
+}
 .pack-box{margin-top:40px;background:#fff;border:1px solid var(--soil);border-radius:10px;padding:30px}
 .pack-box h3{font-family:var(--serif);font-size:20px;color:var(--navy);margin-bottom:6px}
 .pack-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
@@ -176,6 +201,9 @@ footer a{color:var(--gold-soft)}
 
 /* reveal (visible by default; JS adds a gentle fade only when supported) */
 :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+h1,h2,h3,h4{text-wrap:balance}
+blockquote,p,.fee-notes li{text-wrap:pretty}
+@media(max-width:820px){.concept blockquote{font-size:17px;padding-left:18px;padding-right:18px}}
 </style>
 </head>
 <body>
@@ -195,11 +223,11 @@ footer a{color:var(--gold-soft)}
 
 <!-- HERO -->
 <div class="hero">
-  <img class="bg" src="https://static.wixstatic.com/media/fad4bb_78fa48baca7a42d5a1337850178b3d91~mv2/v1/fill/w_1600,h_1000,al_c,q_85/fad4bb_78fa48baca7a42d5a1337850178b3d91~mv2.jpg" alt="棚田の風景">
   
+  <img class="bg" src="https://static.wixstatic.com/media/fad4bb_423636618dc745a6823fe8d0e44430dc~mv2.jpg/v1/fill/w_1600,h_1000,al_c,q_85/hero.jpg" alt="">
   <div class="wrap">
     <div class="eyebrow">SHARE FARMING COMMUNITY</div>
-    <h1>東京で暮らしながら、<br><span>「村に帰る」ような週末を。</span></h1>
+    <h1>東京で暮らしながら、<br><span>「村に帰る」ような<br>週末を</span></h1>
     <p class="sub">Bunkyo Green Friendsは、栃木県の棚田でお米を、神奈川県の海の見える畑で野菜を、みんなで育てるシェア農業コミュニティです。農薬も化学肥料も使わず、土から食卓までを自分の手で。</p>
     <div class="meta">
       <span>農薬・化学肥料 不使用</span>
@@ -220,26 +248,29 @@ footer a{color:var(--gold-soft)}
     </div>
     <div class="concept rv">
       <div>
-        <blockquote>土に触れ、育てた作物を食べる。<br>それだけで、からだと心が整っていく。</blockquote>
+        <blockquote>土に触れ、育てた作物を食べる。<br>それだけで、からだと心が整っていく</blockquote>
         <p>忙しくて農業に参加できない時期があっても大丈夫。東京の店舗(白山のカフェ)では、畑の情報をいつでもシェアしています。季節のワークショップや収穫物を使ったお食事など、畑とつながり続けられる仕組みが店舗側にあります。</p>
         <p>また、自然栽培を通じて、子どもたちが自然環境や食育に触れる機会を増やすこと、私たちが大切にしていることのひとつです。</p>
+      </div>
+      <div style="min-width:0">
+        <img src="https://static.wixstatic.com/media/fad4bb_3c9034f81e8a4b56a62993c972f121ad~mv2.jpg/v1/fill/w_1100,h_620,al_c,q_85/20240330_115905.jpg" alt="田園風景の道を歩く仲間たち" style="width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;box-shadow:0 10px 30px rgba(22,35,63,.14);display:block">
       </div>
     </div>
 
     <div class="goals">
-      <div class="goal rv" data-no="壹">
+      <div class="goal rv" data-no="1">
         <h3>食料危機への備え</h3>
         <p>気候変動や物価高で食料の安定供給が脅かされる今。自分たちの食べる分を自分たちで確保することは、食料不安を減らす直接的な備えになります。</p>
       </div>
-      <div class="goal rv" data-no="貳">
+      <div class="goal rv" data-no="2">
         <h3>安心・安全な食べ物</h3>
         <p>種まきから収穫まで、生育の過程をすべて自分の目で確認。農薬・化学肥料を使わない栽培だから、食卓に安心して出せます。</p>
       </div>
-      <div class="goal rv" data-no="參">
+      <div class="goal rv" data-no="3">
         <h3>体と心のリフレッシュ</h3>
         <p>土に触れ、植物を育てるのは、心を落ち着かせ、体を動かす最良の週末。参加者同士の交流が、地域のつながりも生みます。</p>
       </div>
-      <div class="goal rv" data-no="肆">
+      <div class="goal rv" data-no="4">
         <h3>お子さまの食育</h3>
         <p>植え付けや収穫だけの体験ではなく、作物の成長過程を通しで見られるのがシェア農業の強み。自分で育てた野菜は、苦手な子も食べてみたくなります。</p>
       </div>
@@ -253,12 +284,12 @@ footer a{color:var(--gold-soft)}
     <div class="sec-head rv">
       <div class="num">ACTIVITIES</div>
       <h2 class="sec-title">畑と、その先の食卓</h2>
-      <p class="sec-lead">育てるだけで終わらず、収穫した作物は店内のカフェ料理や惣菜パックとして食卓に届きます。運動・料理教室・ジムとつながる、VaLerio Luanaならではの循環です。</p>
+      <p class="sec-lead">育てるだけで終わらず、収穫した作物は店内のカフェ料理や惣菜パックとして店頭でお渡ししています。運動・料理教室・ジムとつながる、VaLerio Luanaならではの循環です。</p>
     </div>
     <div class="acts">
       <div class="act rv">
         <div class="ph">
-          <img src="https://static.wixstatic.com/media/fad4bb_423636618dc745a6823fe8d0e44430dc~mv2/v1/fill/w_1200,h_680,al_c,q_85/fad4bb_423636618dc745a6823fe8d0e44430dc~mv2.jpg" alt="田んぼの風景">
+          <img src="https://static.wixstatic.com/media/fad4bb_3a29b17e57174e4c8269a0881c1883b6~mv2.jpg/v1/fill/w_1200,h_680,al_c,q_85/rice.jpg" alt="田んぼの風景">
           <span class="tag">RICE / 栃木県</span>
           
         </div>
@@ -269,7 +300,7 @@ footer a{color:var(--gold-soft)}
       </div>
       <div class="act rv">
         <div class="ph">
-          <img src="https://static.wixstatic.com/media/fad4bb_bd050aa682684663b2d5164bf4585b24~mv2/v1/fill/w_1200,h_680,al_c,q_85/fad4bb_bd050aa682684663b2d5164bf4585b24~mv2.jpg" alt="野菜畑の風景">
+          <img src="https://static.wixstatic.com/media/fad4bb_bd050aa682684663b2d5164bf4585b24~mv2.jpg/v1/crop/x_882,y_0,w_2268,h_2268/fill/w_1200,h_680,al_c,q_85/veg.jpg" alt="野菜畑の風景">
           <span class="tag">VEGETABLES / 神奈川県</span>
           
         </div>
@@ -280,7 +311,7 @@ footer a{color:var(--gold-soft)}
       </div>
       <div class="act wide rv">
         <div class="ph">
-          <img src="https://static.wixstatic.com/media/fad4bb_3a29b17e57174e4c8269a0881c1883b6~mv2/v1/fill/w_1200,h_680,al_c,q_85/fad4bb_3a29b17e57174e4c8269a0881c1883b6~mv2.jpg" alt="ワークショップの様子">
+          <img src="https://static.wixstatic.com/media/fad4bb_cc15a13a15a548a6b3635df18b3670e7~mv2.jpg/v1/crop/x_656,y_0,w_1689,h_1689/fill/w_1200,h_680,al_c,q_85/workshop.jpg" alt="ワークショップの様子">
           <span class="tag">WORKSHOP</span>
           
         </div>
@@ -300,71 +331,29 @@ footer a{color:var(--gold-soft)}
     <div class="sec-head rv">
       <div class="num">PLAN</div>
       <h2 class="sec-title">2つの参加のかたち</h2>
-      <p class="sec-lead">「畑に参加する」本会員と、「収穫物を受け取る」野菜会員。まずは野菜会員から始めて、後から本会員に移る方もいます。</p>
+      <p class="sec-lead">受け取りだけのプランから、農業体験・料理教室・パーソナルトレーニングまで含むプランまで、5つの段階をご用意しています。</p>
     </div>
 
-    <div class="plan-wrap">
-      <div class="plan main rv">
-        <div class="ribbon">本会員(畑に参加)</div>
-        <h3>本会員</h3>
-        <div class="en">FULL MEMBER</div>
-        <div class="price">※お問い合わせください</div>
-        <ul>
-          <li>田んぼ・畑の農作業に参加(年間スケジュールは下記)</li>
-          <li>収穫したお米・野菜をお渡しします </li>
-          <li>チームで管理するので、一人の負担は軽め。参加できない月があってもOK</li>
-          <li>ワークショップへの優先案内 </li>
-          <li>個人会員/ファミリー会員の区分あり </li>
-        </ul>
-        <div class="cta-line">ご入会は、説明会(随時開催)ののち受付です。</div>
-      </div>
-
-      <div class="plan rv">
-        <div class="ribbon" style="background:var(--gold)">野菜会員(収穫物を受け取る)</div>
-        <h3>野菜会員</h3>
-        <div class="en">VEGETABLE MEMBER</div>
-        <div class="price">毎月のお届け<small>(自然栽培・一部有機)</small></div>
-        <ul>
-          <li>毎月、自然栽培(一部有機)のお野菜をお届け</li>
-          <li>畑作業は不参加OK。店舗での情報シェアで畑とつながれる</li>
-          <li>オプションで惣菜パックも選べます</li>
-          <li>現在<b>募集中</b> </li>
-        </ul>
-        <div class="cta-line">お申し込みは公式LINEから。 </div>
-      </div>
+    <div class="fees">
+      <table class="fee-table rv">
+        <thead><tr><th>プラン</th><th>受取り</th><th>農業体験</th><th>料理教室</th><th>パーソナル<br>トレーニング</th><th>月会費</th></tr></thead>
+        <tbody>
+          <tr><td class="pn">ベジ会員<small>(単発OK)</small></td><td data-l="受取り">野菜パック<small>5種類以上・増量可</small></td><td data-l="農業体験">—</td><td data-l="料理教室">—</td><td data-l="パーソナルトレーニング">—</td><td class="pr" data-l="月会費">3,300円〜<small>増量はお問い合わせ</small></td></tr>
+          <tr><td class="pn">シルバーベジ<small>(単発OK)</small></td><td data-l="受取り">惣菜パック<small>6〜7品目</small></td><td data-l="農業体験">—</td><td data-l="料理教室">—</td><td data-l="パーソナルトレーニング">—</td><td class="pr" data-l="月会費">8,800円<small>イベントは都度有料</small></td></tr>
+          <tr><td class="pn">ゴールド<small>(年間契約)</small></td><td data-l="受取り">野菜or惣菜<small>どちらか</small></td><td data-l="農業体験">○</td><td data-l="料理教室">—</td><td data-l="パーソナルトレーニング">—</td><td class="pr" data-l="月会費">11,000円</td></tr>
+          <tr><td class="pn">プラチナ<small>(年間契約)</small></td><td data-l="受取り">野菜or惣菜<small>どちらか</small></td><td data-l="農業体験">○</td><td data-l="料理教室">○ 月1回</td><td data-l="パーソナルトレーニング">○ 月1回</td><td class="pr" data-l="月会費">14,000円</td></tr>
+          <tr><td class="pn">プラチナファミリー<small>(年間契約)</small></td><td data-l="受取り">野菜or惣菜<small>どちらか</small></td><td data-l="農業体験">○</td><td data-l="料理教室">○ 月2回</td><td data-l="パーソナルトレーニング">○ 月2回</td><td class="pr" data-l="月会費">22,000円</td></tr>
+        </tbody>
+      </table>
+      <ul class="fee-notes rv">
+        <li><b>受け取り:</b>野菜・惣菜パックは、基本は<b>白山の店舗</b>での受け取りです(配送をご希望の場合はお問い合わせください)</li>
+        <li><b>お米:</b>収穫量に応じてお渡しします(2025年実績：個人会員 3kg/ファミリー会員 4〜6kg)</li>
+        <li><b>野菜:</b>自然栽培(一部有機)</li>
+        <li><b>契約期間:</b>詳細は、説明会・公式LINEでお伝えします</li>
+      </ul>
     </div>
 
-    <div class="pack-box rv">
-      <h3>野菜パック・惣菜パックの料金</h3>
-      <p style="font-size:13px;color:var(--ink-soft)">野菜会員・本会員ともご利用いただけます。価格はすべて税込表示に統一しました。</p>
-      <div class="pack-grid">
-        <div class="pack">
-          <div class="sz">野菜パック / 1〜2人前</div>
-          <div class="p">5,500円 <small style="font-size:12px;color:var(--ink-soft)">/月</small></div>
-          <div class="items">6〜7品目のお野菜</div>
-        </div>
-        <div class="pack">
-          <div class="sz">野菜パック / 3〜4人前</div>
-          <div class="p">8,800円 <small style="font-size:12px;color:var(--ink-soft)">/月</small></div>
-          <div class="items">8〜9品目のお野菜</div>
-        </div>
-        <div class="pack">
-          <div class="sz">惣菜パック / 個人</div>
-          <div class="p">※お問い合わせ</div>
-          <div class="items">2人分</div>
-        </div>
-        <div class="pack">
-          <div class="sz">惣菜パック / ファミリー</div>
-          <div class="p">※お問い合わせ</div>
-          <div class="items">4人分</div>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</section>
-
-<!-- SCHEDULE -->
+    <!-- SCHEDULE -->
 <section class="sec sched" id="schedule">
   <div class="wrap">
     <div class="sec-head rv">
@@ -409,7 +398,7 @@ footer a{color:var(--gold-soft)}
 <section class="cta" id="join">
   <div class="rv">
     <div class="eyebrow">JOIN US</div>
-    <h2>まずは説明会から。<br>畑のことを、お話ししましょう。</h2>
+    <h2>畑のことを、<br>お話ししましょう</h2>
     <p>プロジェクト参加希望の方には、随時説明会を開催しています。野菜会員のお申し込みも、公式LINEから承ります。</p>
     <a class="btn-line" href="https://lin.ee/F35uCHy">
       <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 4.34 3.5 7.97 8.23 8.66.32.07.76.21.87.48.1.25.07.64.03.89l-.14.85c-.04.25-.2.98.86.53 1.06-.44 5.72-3.37 7.8-5.77C21.1 14.75 22 12.9 22 10.8 22 5.94 17.52 2 12 2z"/></svg>
