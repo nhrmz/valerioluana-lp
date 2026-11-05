@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# 転送用スタブ（旧URL）はここに含めない。クロールさせて評価を新URLへ渡す。
+Sitemap: https://www.valerioluana.com/sitemap.xml
